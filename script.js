@@ -1,5 +1,7 @@
-let computerChoice = getComputerChoice().toLowerCase();
-let playerChoice = getPlayerChoice().toLowerCase();
+let computerChoice;
+let playerChoice;
+let playerScore = 0;
+let compScore = 0;
 
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 3);
@@ -42,4 +44,19 @@ function playRound(playerHand, compHand) {
     }
 }
 
-console.log(playRound(playerChoice, computerChoice));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        computerChoice = getComputerChoice().toLowerCase();
+        playerChoice = getPlayerChoice().toLowerCase();
+        let result = playRound(playerChoice, computerChoice);
+        if (result.includes("You Win!")) {
+            playerScore++;
+        } else if (result.includes("You Lose")) {
+            compScore++;
+        }
+        console.log("Score is: Player - " + playerScore + ", Computer - " + compScore);
+    }
+}
+
+game();
+console.log("Final Score is: Player - " + playerScore + ", Computer - " + compScore);
