@@ -1,3 +1,6 @@
+let computerChoice = getComputerChoice().toLowerCase();
+let playerChoice = getPlayerChoice().toLowerCase();
+
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 3);
     if (rand == 1) {
@@ -13,10 +16,7 @@ function getPlayerChoice() {
     return prompt("Let's play RPS! What do you choose?");
 }
 
-let compHand = getComputerChoice().toLowerCase();
-let playerHand = getPlayerChoice().toLowerCase();
-
-function playRound() {
+function playRound(playerHand, compHand) {
     if (playerHand == compHand) {
         return "It's a draw!";
     } else if (playerHand == "rock") {
@@ -41,6 +41,5 @@ function playRound() {
         return "Misinput! Try again!";
     }
 }
-// console.log("CompHand = " + compHand);
-// console.log("PlayerHand = " + playerHand);
-console.log(playRound());
+
+console.log(playRound(playerChoice, computerChoice));
