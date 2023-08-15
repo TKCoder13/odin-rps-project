@@ -45,17 +45,15 @@ function playRound(playerHand, computerHand) {
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        computerChoice = getComputerChoice().toLowerCase();
-        playerChoice = getPlayerChoice().toLowerCase();
-        let result = playRound(playerChoice, computerChoice);
-        if (result.includes("You Win!")) {
-            playerScore++;
-        } else if (result.includes("You Lose")) {
-            computerScore++;
-        }
-        console.log("Score is: Player - " + playerScore + ", Computer - " + computerScore);
+    computerChoice = getComputerChoice().toLowerCase();
+    playerChoice = getPlayerChoice().toLowerCase();
+    let result = playRound(playerChoice, computerChoice);
+    if (result.includes("You Win!")) {
+        playerScore++;
+    } else if (result.includes("You Lose")) {
+        computerScore++;
     }
+    console.log("Score is: Player - " + playerScore + ", Computer - " + computerScore);
 }
 
 game();
