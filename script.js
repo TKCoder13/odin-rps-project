@@ -2,6 +2,7 @@ let computerChoice;
 let playerChoice;
 let playerScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll('btn');
 
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3);
@@ -55,6 +56,12 @@ function game() {
     }
     console.log("Score is: Player - " + playerScore + ", Computer - " + computerScore);
 }
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log('clicked')
+    })
+});
 
 game();
 console.log("Final Score is: Player - " + playerScore + ", Computer - " + computerScore);
