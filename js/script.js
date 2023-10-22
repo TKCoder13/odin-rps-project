@@ -8,6 +8,7 @@ let computerScore = 0;
 const rockButton = document.querySelector('btn-rock');
 const paperButton = document.querySelector('btn-paper');
 const scissorsButton = document.querySelector('btn-scissors');
+const btn = document.createElement('btn');
 
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3);
