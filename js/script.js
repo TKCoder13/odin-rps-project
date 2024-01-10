@@ -1,3 +1,5 @@
+
+
 let computerChoice;
 let playerChoice;
 let playerScore = 0;
@@ -5,10 +7,21 @@ let computerScore = 0;
 
 // buttons
 // const buttons = document.querySelectorAll('btn'); // nodelist of all buttons
+const btn = document.createElement('btn');
+
 const rockButton = document.querySelector('btn-rock');
 const paperButton = document.querySelector('btn-paper');
 const scissorsButton = document.querySelector('btn-scissors');
-const btn = document.createElement('btn');
+rockButton.addEventListener("click", playRound("rock", getComputerChoice()), {
+    capture: true
+});
+paperButton.addEventListener("click", playRound("paper", getComputerChoice()), {
+    capture: true
+});
+scissorsButton.addEventListener("click", playRound("scissors", getComputerChoice()), {
+    capture: true
+});
+
 
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3);
@@ -63,16 +76,5 @@ function game() {
     console.log("Score is: Player - " + playerScore + ", Computer - " + computerScore);
 }
 
-rockButton.addEventListener("click", playRound("rock", getComputerChoice()), {
-    capture: true
-});
-paperButton.addEventListener("click", playRound("paper", getComputerChoice()), {
-    capture: true
-});
-scissorsButton.addEventListener("click", playRound("scissors", getComputerChoice()), {
-    capture: true
-});
-
-
-// game();
+game();
 console.log("Final Score is: Player - " + playerScore + ", Computer - " + computerScore);
