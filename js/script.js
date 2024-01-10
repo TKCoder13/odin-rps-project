@@ -11,7 +11,10 @@ const btn = document.createElement('btn');
 
 const rockButton = document.querySelector('btn-rock');
 if (rockButton) {
-    rockButton.addEventListener("click", playRound("rock", getComputerChoice()));
+    rockButton.addEventListener("click", () => {
+        playRound("rock", getComputerChoice());
+        console.log("Player -> Rock");
+    }, true);
 }
 const paperButton = document.querySelector('btn-paper');
 if (paperButton) {
@@ -77,8 +80,9 @@ function game() {
     } else if (result.includes("You Lose")) {
         computerScore++;
     }
-    console.log("Score is: Player - " + playerScore + ", Computer - " + computerScore);
+    console.log("Score: Player - " + playerScore + ", Computer - " + computerScore);
 }
 
-// game();
-console.log("Final Score is: Player - " + playerScore + ", Computer - " + computerScore);
+game();
+rockButton
+console.log("Final Score: Player - " + playerScore + ", Computer - " + computerScore);
