@@ -10,20 +10,22 @@ let computerScore = 0;
 const btn = document.createElement('btn');
 
 const rockButton = document.querySelector('btn-rock');
-rockButton.addEventListener("click", playRound("rock", getComputerChoice()), {
-    capture: true
-});
-
+if (rockButton) {
+    rockButton.addEventListener("click", playRound("rock", getComputerChoice()));
+}
 const paperButton = document.querySelector('btn-paper');
-paperButton.addEventListener("click", playRound("paper", getComputerChoice()), {
-    capture: true
-});
+if (paperButton) {
+    paperButton.addEventListener("click", playRound("paper", getComputerChoice()), {
+        capture: true
+    });
+}
 
 const scissorsButton = document.querySelector('btn-scissors');
-scissorsButton.addEventListener("click", playRound("scissors", getComputerChoice()), {
-    capture: true
-});
-
+if (scissorsButton) {
+    scissorsButton.addEventListener("click", playRound("scissors", getComputerChoice()), {
+        capture: true
+    });
+}
 
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3);
@@ -78,5 +80,5 @@ function game() {
     console.log("Score is: Player - " + playerScore + ", Computer - " + computerScore);
 }
 
-game();
+// game();
 console.log("Final Score is: Player - " + playerScore + ", Computer - " + computerScore);
