@@ -10,14 +10,16 @@ let computerScore = 0;
 const btn = document.createElement('btn');
 
 const rockButton = document.querySelector('btn-rock');
-const paperButton = document.querySelector('btn-paper');
-const scissorsButton = document.querySelector('btn-scissors');
 rockButton.addEventListener("click", playRound("rock", getComputerChoice()), {
     capture: true
 });
+
+const paperButton = document.querySelector('btn-paper');
 paperButton.addEventListener("click", playRound("paper", getComputerChoice()), {
     capture: true
 });
+
+const scissorsButton = document.querySelector('btn-scissors');
 scissorsButton.addEventListener("click", playRound("scissors", getComputerChoice()), {
     capture: true
 });
