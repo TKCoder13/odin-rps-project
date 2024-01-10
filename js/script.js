@@ -5,14 +5,13 @@ let playerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
-// buttons
-// const buttons = document.querySelectorAll('btn'); // nodelist of all buttons
-const btn = document.createElement('btn');
+
 
 const rockButton = document.querySelector('#btn-rock');
 if (rockButton) {
     rockButton.addEventListener("click", () => {
         playRound("rock", getComputerChoice());
+        updateScore();
     });
 }
 const paperButton = document.querySelector('#btn-paper');
@@ -42,6 +41,10 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     return prompt("Let's play RPS! What do you choose?");
+}
+
+function updateScore() {
+    document.getElementById('#score').innerHTML = "Score: Player - " + playerScore + ", Comp - " + computerScore;
 }
 
 function playRound(playerHand, computerHand) {
@@ -85,15 +88,17 @@ function playRound(playerHand, computerHand) {
 }
 
 function game() {
-    computerChoice = getComputerChoice().toLowerCase();
-    playerChoice = getPlayerChoice().toLowerCase();
-    let result = playRound(playerChoice, computerChoice);
-    if (result.includes("You Win!")) {
-        playerScore++;
-    } else if (result.includes("You Lose")) {
-        computerScore++;
-    }
-    console.log("Score: Player - " + playerScore + ", Computer - " + computerScore);
+    // while(playerScore <= 5 || computerScore <= 5) {
+        computerChoice = getComputerChoice().toLowerCase();
+        playerChoice = getPlayerChoice().toLowerCase();
+        let result = playRound(playerChoice, computerChoice);
+        if (result.includes("You Win!")) {
+            playerScore++;
+        } else if (result.includes("You Lose")) {
+            computerScore++;
+        }
+        console.log("Score: Player - " + playerScore + ", Computer - " + computerScore);
+    // }
 }
 
 game();
