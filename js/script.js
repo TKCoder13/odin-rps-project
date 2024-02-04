@@ -3,6 +3,12 @@ let playerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
+let scoreDiv = document.querySelector('#score');
+let displayPlayerScore = document.createElement('div');
+displayPlayerScore.textContent = "Score: Player - " + playerScore + ", Comp - " + computerScore;
+// DOM
+scoreDiv.appendChild(displayPlayerScore);
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -34,12 +40,12 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice() {
-    return prompt("Let's play RPS! What do you choose?");
-}
+// function getPlayerChoice() {
+//     return prompt("Let's play RPS! What do you choose?");
+// }
 
 function updateScore() {
-    document.getElementById('#score').innerHTML = "Score: Player - " + playerScore + ", Comp - " + computerScore;
+    displayPlayerScore.textContent = "Score: Player - " + playerScore + ", Comp - " + computerScore;
 }
 
 function playRound(playerHand, computerHand) {
@@ -82,18 +88,18 @@ function playRound(playerHand, computerHand) {
     }
 }
 
-function game() {
-    // while(playerScore <= 5 || computerScore <= 5) {
-        computerChoice = getComputerChoice().toLowerCase();
-        playerChoice = getPlayerChoice().toLowerCase();
-        let result = playRound(playerChoice, computerChoice);
-        if (result.includes("You Win!")) {
-            playerScore++;
-        } else if (result.includes("You Lose")) {
-            computerScore++;
-        }
-        console.log("Score: Player - " + playerScore + ", Computer - " + computerScore);
-    // }
-}
+// function game() {
+//     // while(playerScore <= 5 || computerScore <= 5) {
+//         computerChoice = getComputerChoice().toLowerCase();
+//         playerChoice = getPlayerChoice().toLowerCase();
+//         let result = playRound(playerChoice, computerChoice);
+//         if (result.includes("You Win!")) {
+//             playerScore++;
+//         } else if (result.includes("You Lose")) {
+//             computerScore++;
+//         }
+//         console.log("Score: Player - " + playerScore + ", Computer - " + computerScore);
+//     // }
+// }
 
-game();
+// game();
