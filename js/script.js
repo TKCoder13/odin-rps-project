@@ -1,5 +1,3 @@
-
-
 let computerChoice;
 let playerChoice;
 let playerScore = 0;
